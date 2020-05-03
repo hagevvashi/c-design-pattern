@@ -3,5 +3,5 @@
 ## how to compile
 
 ```bash
-gcc -o ./dist/to_binary ./src/to_binary.c ./src/lib/mypow.c
+gcc -o ./dist/to_decimal.out ./src/to_decimal.c ./src/lib/mypow.c
 ```
