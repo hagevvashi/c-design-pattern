@@ -3,6 +3,6 @@
 
 #include <stdio.h>
 
-short mypow(short base, short exponent);
+int mypow(short base, short exponent);
 
 #endif

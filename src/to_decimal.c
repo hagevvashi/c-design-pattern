@@ -11,7 +11,7 @@ int main() {
   char input[digit];
   scanf("%s", input);
 
-  short output = 0;
+  int output = 0;
 
   for (short i = 0; i < digit; i += 1) {
     short int_input = (short)input[i] - ZERO;
@@ -20,7 +20,7 @@ int main() {
     output = output + (int_input * mypow(BASE, exponent));
   }
 
-  printf("%hd", output);
+  printf("%d", output);
   printf("%c", '\n');
 
   return 0;
