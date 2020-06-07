@@ -1,20 +1,36 @@
 #include <stdio.h>
-#include "./lib/mypow.h"
+
+#define ARR_MAX 10010// 1047749
 
 int main() {
   const short BASE = 2;
-  short input_decimal;
-  scanf("%hd", &input_decimal);
+  long input_decimal;
+  scanf("%ld", &input_decimal);
 
-  input_decimal = 10;
+  long count = 0;
+  long remainder[ARR_MAX];
+  long quotient = input_decimal;
+  while(quotient != 1) {
+    remainder[count] = quotient % BASE;
+    quotient /= BASE;
+    count += 1;
+  }
 
-  // 10 に一番近い pow を探す
+  char output[count + 1];
 
-  mypow(BASE, 3) * 1 + mypow(BASE, 2) * 0 + mypow(BASE, 1) * 1 + mypow(BASE, 0) * 0
+  output[0] = '1';
+  for (long i = 1; i <= count; i += 1) {
+    output[i] = '0' + remainder[count - i];
+  }
 
-  char output_binary[5] = "1010";
-  printf("%s", output_binary);
-  printf("%c", '\n');
+  // printf("%c\n", output[0]); // ここのコメント外すと下でも正常に'1'が出力される
+  // printf("%c", output[1]);
+  // printf("%c\n", output[2]);
+  /* for (long i = 0; i <= count; i += 1) { */
+  /*   printf("%ld\n", i); */
+  /*   printf("%c\n", output[count]); */ // 上でコメントはずさないとここではなぜか'0'が出力されてしまう
+  /* } */
+  printf("%s\n", output);
 
   return 0;
 }
