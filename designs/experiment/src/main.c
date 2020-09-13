@@ -8,6 +8,7 @@
 #define max(p, q)((p) > (q) ? (p) : (q))
 #define min(p, q)((p) < (q) ? (p) : (q))
 #define swap(type, a, b) { type temp = a; a = b; b = temp; }
+
 int main() {
   int a;
 
