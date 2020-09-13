@@ -18,4 +18,5 @@ runtest() {
     echo "$input => $result"
 }
 
-runtest "${TEST_DIR}/input.txt" "${TEST_DIR}/output.txt"
+runtest "${TEST_DIR}/input1.txt" "${TEST_DIR}/output1.txt"
+runtest "${TEST_DIR}/input2.txt" "${TEST_DIR}/output2.txt"
