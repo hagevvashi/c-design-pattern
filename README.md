@@ -1,4 +1,4 @@
-# c_experiment
+# c-design-pattern
 
 ## how to compile
 
