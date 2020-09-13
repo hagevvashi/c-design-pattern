@@ -52,9 +52,9 @@ int queue_num;
  * @param enq_data data_t
  */
 int enqueue(data_t enq_data) {
-  int current_size = queue_head + queue_num;
-  if (current_size < QUEUE_SIZE) {
-    queue_data[current_size] = enq_data;
+  int new_queue_tail = queue_head + queue_num;
+  if (new_queue_tail < QUEUE_SIZE) {
+    queue_data[new_queue_tail] = enq_data;
     queue_num += 1;
     return SUCCESS;
   } else {
