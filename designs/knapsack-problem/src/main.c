@@ -27,21 +27,42 @@
  * ** 答え: 94 ((3,6), (1,3), (5,85) を選んだときが最大です)**
  */
 int main() {
-  int n;
-  scanf("%d", &n);
-  int * a;
-  a = array(n, int);
+  // 入力
+  int n, W;
+  int *weight, *value;
+  scanf("%d%d", &n, &W);
+  weight = array(n, int);
+  value = array(n, int);
+  rep(i, n) scanf("%d%d", weight + i, value + i);
+
+  // dp テーブルの用意
+  int **dp;
+  dp = array(n + 1, int *);
   rep(i, n) {
-    scanf("%d", a + i);
+    int w[10010] = {0};
+    dp[i] = w;
   }
-  int * dp;
-  dp = array(n + 1, int);
-  dp[0] = 0;
+
+  // 処理
   rep(i, n) {
-    dp[i + 1] = max(dp[i], dp[i] + a[i]);
+    rep(w, W + 1) {
+      int current = dp[i][w];
+      int next;
+      if (w >= weight[i]) {
+        next = max(dp[i][w - weight[i]] + value[i], current);
+      } else {
+        next = current;
+      }
+      dp[i + 1][w] = next;
+    }
   }
-  printf("%d\n", dp[n]);
-  free(a);
+
+  // 出力
+  // printf("%d\n", dp[n][W]);
+
+  // 後処理
+  free(weight);
+  free(value);
   free(dp);
   return 0;
 }
