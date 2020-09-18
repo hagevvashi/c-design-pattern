@@ -37,17 +37,20 @@ int main() {
 
   // dp テーブルの用意
   int **dp;
-  dp = array(n + 1, int *);
-  rep(i, n) {
+  dp = (int **)malloc(n + 1);
+  rep(i, n + 1) {
     int w[10010] = {0};
     dp[i] = w;
   }
+
+  // rep(i, n) {printf("value[i]: %d\n", value[i]); printf("weight[i]: %d\n", weight[i]);}
 
   // 処理
   rep(i, n) {
     rep(w, W + 1) {
       int current = dp[i][w];
       int next;
+
       if (w >= weight[i]) {
         next = max(dp[i][w - weight[i]] + value[i], current);
       } else {
@@ -58,7 +61,7 @@ int main() {
   }
 
   // 出力
-  // printf("%d\n", dp[n][W]);
+  printf("%d\n", dp[n][W]);
 
   // 後処理
   free(weight);
