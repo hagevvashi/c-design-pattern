@@ -37,12 +37,14 @@ int main() {
   rep(i, n) scanf("%d%d", weight + i, value + i);
 
   // dp テーブルの用意
-  int **dp;
-  dp = (int **)malloc(n + 1);
-  rep(i, n + 1) {
-    int w[10010] = {0};
-    dp[i] = w;
-  }
+  int dp[110][10010];
+  rep(w, W + 1) dp[0][w] = 0;
+  /* int **dp; */
+  /* dp = (int **)malloc(n + 1); */
+  /* rep(i, n + 1) { */
+  /*   int w[10010] = {0}; */
+  /*   dp[i] = w; */
+  /* } */
   /* int mw = 0; */
   /* rep(i, n) mw += weight[i]; */
   /* rep(i, n + 1) { */
@@ -91,6 +93,6 @@ int main() {
   /* rep(i, n + 1) { */
   /*   free(dp[i]); */
   /* } */
-  free(dp);
+  // free(dp);
   return 0;
 }
