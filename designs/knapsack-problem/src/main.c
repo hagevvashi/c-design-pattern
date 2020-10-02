@@ -78,11 +78,9 @@ int main() {
     dp[i + 1][w] = next;
   }
 
-  /* rep(i, n) rep(w, W + 1) { */
-  /*   printf("i: %d, ", i); */
-  /*   printf("w: %d, ", w); */
-  /*   printf("dp[i][w]: %d\n", dp[i][w]); */
-  /* } */
+  rep(i, n + 1) rep(w, W + 1) {
+    printf("dp[%d][%d]: %d\n", i, w, dp[i][w]);
+  }
 
   // 出力
   printf("%d\n", dp[n][W]);
