@@ -66,14 +66,15 @@ int main() {
 
   // 処理
   rep(i, n) rep(w, W + 1) {
-    int current = dp[i][w];
+    int previous = dp[i][w];
     int next;
 
     if (w >= weight[i]) {
-      int j = w - weight[i];
-      next = max(dp[i][j] + value[i], current);
+      int prev_w = w - weight[i];
+      int current = dp[i][prev_w] + value[i];
+      next = max(current, previous);
     } else {
-      next = current;
+      next = previous;
     }
     dp[i + 1][w] = next;
   }
